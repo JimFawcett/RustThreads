@@ -90,7 +90,7 @@ fn test2() -> std::io::Result<()> {
     /*-------------------------------------------------------
         extract mutex from arc
         - commented line is simple but may panic
-        - code used here manages error
+        - code used here manages error without panic
     */
     // let out = Arc::try_unwrap(data).expect("lock still owned");
     let rslt = Arc::try_unwrap(data);
@@ -106,9 +106,9 @@ fn test2() -> std::io::Result<()> {
         },
     }
     /*-------------------------------------------------------
-        extract mutex protected String
+        extract string from mutex
         - commented line is simple but may panic
-        - code used here manages error 
+        - code used here manages error without panic
     */
     //let mut shared = out.into_inner().expect("can't lock mutex");
     let mut shared: String;
